@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+<% include ../partial/head %>
+
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+         <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+
+        <% include ../partial/navbar %>
+
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+
+      <% include ../partial/left-sidebar %>
+
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+            <div class="container-fluid dashboard-content">
+                <div class="row">
+                  <div class="row">
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                          <div class="section-block" id="badges">
+                              <h3 class="section-title">User Detail</h3>
+                          </div>
+                      </div>
+                      <div class="col-xl-12 col-lg-6 col-md-6 col-sm-12 col-12">
+                          <div class="card card-fluid">
+                              <div class="card-img-top">
+                                  <img src="/assets/images/card-img-3.jpg" alt="" class=" img-fluid">
+                              </div>
+                              <!-- .card-body -->
+                              <div class="card-body text-center">
+                                  <!-- .user-avatar -->
+                                  <a href="user-profile.html" class="user-avatar user-avatar-floated user-avatar-xl">
+                                 <img src="/assets/images/avatar-1.jpg" alt="User Avatar" class="rounded-circle user-avatar-xl">
+                                  </a>
+
+                                  <h3 class="card-title mb-2">
+                                 <a href="user-profile.html"><%= users.name %></a>
+                                  </h3>
+                                  <h6 class="card-subtitle text-muted mb-3"> <%= users.email %> </h6>
+                                  <!-- grid row -->
+                                  <div class="row">
+                                      <div class="col-xl-6 col-lg-4 col-md-6 col-sm-12 col-12">
+                                          <div class="metric">
+                                          <a href="/users/userupdate/<%= users._id %>"><button type="button" class="btn btn-primary" role="button">Update</button></a>
+                                          </div>
+                                      </div>
+
+                                      <div class="col-xl-6 col-lg-4 col-md-6 col-sm-12 col-12">
+                                          <div class="metric">
+                                            <button type="button" name="button" class="btn btn-danger" onclick="del()">Delete</button>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+
+            <% include ../partial/footer %>
+
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper -->
+    <!-- ============================================================== -->
+    <!-- Optional JavaScript -->
+
+    <% include ../partial/script %>
+
+</body>
+<script type="text/javascript">
+  function del(){
+    var com = confirm("Are You Sure!");
+    if (com) {
+      location.href = '/users/userdel/<%= users._id %>';
+    }
+  }
+</script>
+</html>
